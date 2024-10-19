@@ -1,0 +1,12 @@
+int counter=0;
+int startElement=1;
+
+while(i<=10){
+	if(i % 2 != 0){
+		counter+=1;
+	}
+++i;
+}
+
+System.out.println(counter)
+System.out.println("BOOM")

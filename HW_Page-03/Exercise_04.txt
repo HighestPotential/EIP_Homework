@@ -1,0 +1,22 @@
+public class CrossSum {
+public static int calculateCrossSum (int n) {
+int result = 0;
+
+while(n!=0){
+result+=n%10;
+n/=10;
+}
+
+// ergaenzen Sie das Programm so, dass result die
+// Quersumme von n berechnet
+return result;
+}
+public static void main(String[] args) {
+System.out.println(calculateCrossSum(3423));
+System.out.println(calculateCrossSum(1));
+System.out.println(calculateCrossSum(0));
+System.out.println(calculateCrossSum(99));
+// Testen Sie Ihr Programm hier
+System.out.println(calculateCrossSum(125));
+}
+}
