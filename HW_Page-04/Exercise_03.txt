@@ -1,0 +1,24 @@
+import java.util.Scanner;
+import java.util.HashMap;
+
+public class ZaehleTEL {
+    
+    public static void countTEL(char zeichen []){
+        HashMap<Character, Integer> mp = new HashMap<Character, Integer>();
+        
+        for(int i=0; i<zeichen.length; ++i){
+            mp.put(zeichen[i], mp.getOrDefault(zeichen[i], 0)+1);
+        }
+        System.out.println("Der Buchstabe \"t\" kommt " + mp.getOrDefault('t', 0) + " mal vor.");
+        System.out.println("Der Buchstabe \"e\" kommt " + mp.getOrDefault('e', 0) + " mal vor.");
+        System.out.println("Der Buchstabe \"l\" kommt " + mp.getOrDefault('l', 0) + " mal vor.");
+    }
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Bitte geben Sie eine Zeichenfolge ein:");
+        String eingabe = scanner.nextLine();
+        char[] zeichen = eingabe.toCharArray();
+        countTEL(zeichen);
+        scanner.close();
+    }
+}

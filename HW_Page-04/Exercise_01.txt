@@ -1,0 +1,7 @@
+-"programm_fehlerhaft" die erste Buchstabe soll groß sein
+- Außerdem müsste die classe FehlerSuche heißen, da sie in der Datei FehlerSuche.java
+- void in der Zeile 20 fehlt "static void main"
+- Zeile 40: i=25 -> i==25
+- Zeile 40: <10 -> i < 10
+- Zeile 60:  system.out.print(Hello World!) ->  System.out.print("Hello World!")
+- Zeile 20 am Ende und Zeile 90 fehlen "{" und "}"

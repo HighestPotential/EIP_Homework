@@ -1,0 +1,22 @@
+import java.util.Scanner;
+
+public class TriangleOutput {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Bitte geben Sie die Hoehe des Dreiecks ein:");
+        int triangleSize = scanner.nextInt();
+
+        drawTriangle(triangleSize);
+        scanner.close();
+    }
+
+    public static void drawTriangle(int sizeOfTriangle) {
+        for(int i=1; i<sizeOfTriangle; ++i){
+            for(int j=0; j<i; ++j ){
+                System.out.print("*");
+            }
+            System.out.print("\n");
+        }
+    }
+}
