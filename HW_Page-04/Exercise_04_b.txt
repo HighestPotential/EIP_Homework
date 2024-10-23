@@ -1,0 +1,34 @@
+import java.util.Arrays;
+
+public class IsSortedArray {
+    
+    public static boolean isSorted(int[] a){
+        if(a.length==1) return true;
+        
+        int previousVar=a[0];
+        for(int i=1; i<a.length; ++i){
+            if(previousVar>a[i]){
+                return false;
+            }
+            previousVar=a[i];
+        }
+        return true;
+    }
+
+    public static void main(String[] args) {
+        int [] a= {1,3,4,6,87,9,9};
+        if(a==null || a.length==0) {
+            System.out.print("Array is either null or empty");
+            return;
+        }
+        
+        boolean isArraySorted=isSorted(a);
+        
+        if(isArraySorted){
+            System.out.print("Array is sorted");
+        }else{
+            System.out.print("Array is not sorted");
+        }
+        
+    }
+}
