@@ -4,5 +4,5 @@
 /**
  * 
  */
-module Uhrzeit {
+module Uhrzeit_2 {
 }

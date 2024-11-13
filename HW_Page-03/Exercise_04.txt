@@ -12,10 +12,7 @@ n/=10;
 return result;
 }
 public static void main(String[] args) {
-System.out.println(calculateCrossSum(3423));
-System.out.println(calculateCrossSum(1));
-System.out.println(calculateCrossSum(0));
-System.out.println(calculateCrossSum(99));
+
 // Testen Sie Ihr Programm hier
 System.out.println(calculateCrossSum(125));
 }
