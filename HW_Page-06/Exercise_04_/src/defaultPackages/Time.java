@@ -168,6 +168,16 @@ public class Time {
 		
 	}
 	
+	@Override
+	public String toString() {
+	    return String.format(
+	        "Time (hours: %d, minutes: %d, seconds: %d)",
+	        hours,
+	        minutes,
+	        seconds
+	    );
+	}
+	
 	
 	
 }
