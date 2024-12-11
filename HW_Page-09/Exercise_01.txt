@@ -1,0 +1,10 @@
+1) a)
+“Der Hund.” - nein
+“Der Hund bellt.” - ja
+Die Katze kräht -ja
+“Der Hund miaut. Die Katze bellt. - nein
+
+b)
+Da auf der Tastatur kein Epsilon gibt ist e := Epsilon.
+
+<Klammersprache> ::= "(" <Klammersprache> ")" [<Klammersprache>] | {"()"} | e
