@@ -1,0 +1,6 @@
+a) binary search
+
+c) 2*2*2... bis es 15 000 wird oder log2(15000)
+Im Worst Case (z. B. für die Zahl 1) muss der Coputer 14 mal raten
+
+d)2*2*2*2=16
