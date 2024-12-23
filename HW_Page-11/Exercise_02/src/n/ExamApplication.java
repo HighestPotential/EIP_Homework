@@ -11,6 +11,8 @@ public class ExamApplication {
         exam.addQuestions("What is Java?", 5);
         exam.addQuestions("What is VM?", 10);
         
-        System.out.println(exam);
+        
+        exam.save();
+        exam.load();
     }
 }

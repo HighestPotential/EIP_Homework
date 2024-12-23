@@ -1,5 +1,11 @@
 package n;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Exam {
@@ -62,6 +68,55 @@ public class Exam {
 		}
 		
 		return output;
+	}
+	
+	public void save() {
+		BufferedWriter writer = null;
+		try {
+			writer = new BufferedWriter(new FileWriter("config.txt"));
+			
+			String output = "";
+			output+=this.name + "\n" + this.year + "\n";
+			writer.write(output);
+			
+			for(Question question :this.questions) {
+				writer.write(question.getPoints()+ "\n" +question.getText());
+				writer.newLine();
+			}
+		}catch(IOException e) {
+			System.err.println("Could not create the file");
+		} finally{
+			if(writer!= null) {
+				try {writer.close();} catch (IOException e) {}
+			}
+		}
+	}
+	
+	public void load() {
+		
+		BufferedReader reader = null;
+        try {
+            reader = new BufferedReader(new FileReader("config.txt"));
+            String s;
+            while ((s = reader.readLine()) != null) {
+                System.out.println(s); // Use println for line breaks
+            }
+        } catch (FileNotFoundException e) {
+            System.err.println("Datei nicht gefunden.");
+            e.printStackTrace();
+        } catch (IOException e) {
+            System.err.println("Fehler beim Lesen der Datei.");
+            e.printStackTrace();
+        } finally {
+            if (reader != null) {
+                try {
+                    reader.close();
+                } catch (IOException e) {
+                    
+                }
+            }
+        }
+        
 	}
 	
 }
