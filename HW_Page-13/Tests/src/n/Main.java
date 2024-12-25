@@ -1,30 +1,39 @@
 package n;
 
 public class Main {
-	public static void main(String[] args) throws InterruptedException {
-        Thread thread = new Thread(() -> {
-            try {
-                while (!Thread.currentThread().isInterrupted()) {
-                    System.out.println("Thread läuft...");
-                    Thread.sleep(10);  // Der Thread schläft für 1 Sekunde
-                }
-            } catch (InterruptedException e) {
-                System.out.println("Thread wurde unterbrochen.");
-                // Hier könnte der Thread die Unterbrechung verarbeiten und die Arbeit beenden
-            }
-            System.out.println("Thread beendet.");
-        });
+    int balance = 0;
 
-        thread.start();  // Startet den Thread
+    synchronized void deposit(int amount) {
+        balance += amount;
+    }
 
-        Thread.sleep(4000); // Warte 3 Sekunden
-        thread.interrupt();  // Unterbricht den Thread
+    synchronized void withdraw(int amount) {
+        balance -= amount;
+    }
 
-        thread.join();  // Wartet darauf, dass der Thread beendet wird
-        System.out.println("Thread ist im TERMINATED-Zustand.");
-        
-        Thread thread1 = new Thread(() -> System.out.println("Hello"));
-        thread1.run(); // Just runs in main thread
-        thread1.run(); // Also just runs in main thread - no new thread created
+    synchronized void transferTo(Main destAcc, int amount) {
+        this.withdraw(amount);
+        destAcc.deposit(amount);
+    }
+
+    public static void main(String[] args) throws InterruptedException {
+        Main account1 = new Main();
+        Main account2 = new Main();
+
+        // Initialize balances
+        account1.balance = 1000;
+        account2.balance = 1000;
+
+        // Thread 1: Transfer from account1 to account2
+        Thread thread1 = new Thread(() -> account1.transferTo(account2, 100));
+
+        // Thread 2: Transfer from account2 to account1
+        Thread thread2 = new Thread(() -> account2.transferTo(account1, 200));
+
+        thread1.start();
+        thread2.start();
+        thread1.join();
+        thread2.join();
+        System.out.print("dfadsfasdf");
     }
 }
