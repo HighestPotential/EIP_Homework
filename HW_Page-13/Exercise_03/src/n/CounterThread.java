@@ -24,12 +24,13 @@ class CounterThread extends Thread {
     @Override
     public void run() {
         while (true) {
-           
-            if (!incrementCounter(threadNum)) {
-                break; 
-            }
-
-           
+        	
+           synchronized(CounterThread.class) {
+        	   if (!incrementCounter(threadNum)) {
+                   break; 
+               } 
+           }
+            
             try {
                 Thread.sleep(20);
             } catch (InterruptedException e) {
